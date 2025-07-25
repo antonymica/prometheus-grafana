@@ -38,6 +38,12 @@ services:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
       - '--path.rootfs=/rootfs'
+  app:
+    image: aanton0/nodeapp-metrics
+    container_name: node-app
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
 
 volumes:
   prom_data:
